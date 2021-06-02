@@ -1,9 +1,6 @@
 # CP-VSCode-Setup
 A Competitive Programming setup using VSCode for C++ users in Windows and Ubuntu with Debugging support.
 
-[Installation video for Windows on Youtube](https://youtu.be/qzEWDVXknzg)
-
-[Installation video for Ubuntu on Youtube](https://youtu.be/HNeDI7Ijbfc)
 
 ## **Features**
 1) VSCode ready to use out of the box (Only windows users need to correct MinGW installation path).
