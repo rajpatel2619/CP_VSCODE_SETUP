@@ -13,13 +13,9 @@ ll powe(ll x, ll y){ x = x%mod, y=y%(mod-1);ll ans = 1;while(y>0){if (y&1){ans =
 
 
 void solve(){
-int n,k;
-cin>>n>>k;
-int res;
-for(int i=1;i<=n;i++){
-    
-}
-cout<<res<<"\n";	
+vector<int> nums {1,5,2,5,3};
+sort(nums.begin(),nums.end());
+
 }
 
 
@@ -27,10 +23,10 @@ cout<<res<<"\n";
 
 signed main(){
     fast;
-    int t = 1;
-    cin >> t;
-    while(t--){
+    // int t = 1;
+    // cin >> t;
+    // while(t--){
+    // }
     	solve();
-    }
     return 0;
 }

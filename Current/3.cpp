@@ -20,31 +20,46 @@ void solve(){
     for(int i=0;i<n;i++) cin>>a[i];
     for(int i=0;i<m;i++) cin>>b[i];
 
-    for(int i=0;i<m;i++){
-        if(b[i]==1){
-            cout<<0<<" ";
-            continue;
-        }else{
-
-        int ts = b[i]-1;
-        int jt=0,kt=0;
-        for(int j=ts,k=ts;j>=0||k<n;j--,k++){
-            if(j>=0 && a[j] == 1){
-                jt = ts - j ; 
-                break;
-            }
-            else if(k<n && a[k] == 2){
-                 kt = k-ts;
-                 break;
-            }
-        }
-        int time=-1;
-        if(jt> 0 && kt > 0 ) time = min(jt,kt);
-        else if(jt > 0 && kt == 0) time =jt;
-        else if(kt > 0 && jt== 0) time=kt;
-        cout<<time<<" ";
-        }
+    int solution[n];
+    int mx = INT_MAX;
+    solution[0] = 0;
+    for(int i=1;i<n;i++){
+        if(a[i]!=0) solution[i]=0;
+        else solution[i] = mx;
     }
+
+    // traversing for train 1
+    int right = -1;
+    for(int i=0;i<n;i++){
+        if(a[i]==1) 
+            right = i;
+
+        if( right != -1)
+            if(a[i]==0)
+                solution[i] = min(solution[i],i-right);
+        
+    }
+    
+
+
+    // traversing for train 2
+    int left = -1;
+    for(int i=n-1;i>=0;i--){
+        if(a[i]==2) 
+            left = i;
+
+        if( left != -1)
+            if(a[i]==0)
+                solution[i] = min(solution[i],left-i);
+        
+    }
+       
+    for(int i=0;i<m;i++){
+        int man = b[i] -1 ;
+        if(solution[man]!=mx) cout<<solution[man]<<" ";
+        else cout<<-1<<" ";     
+    }
+
     cout<<"\n";
 
 }
